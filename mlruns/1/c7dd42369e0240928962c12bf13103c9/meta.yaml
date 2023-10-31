@@ -1,0 +1,15 @@
+artifact_uri: file:///D:/FSDS/MAchine_Learning/wafer_sensor_fault_mlflow_aws/wafer_sensor_fault/mlruns/1/c7dd42369e0240928962c12bf13103c9/artifacts
+end_time: 1692158529567
+entry_point_name: ''
+experiment_id: '1'
+lifecycle_stage: active
+name: ''
+run_id: c7dd42369e0240928962c12bf13103c9
+run_uuid: c7dd42369e0240928962c12bf13103c9
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1692158526293
+status: 3
+tags: []
+user_id: unknown

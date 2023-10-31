@@ -1,0 +1,4 @@
+artifact_location: file:///D:/FSDS/MAchine_Learning/wafer_sensor_fault_mlflow_aws/wafer_sensor_fault/mlruns/1
+experiment_id: '1'
+lifecycle_stage: active
+name: 'Experiment: XGBoost'
