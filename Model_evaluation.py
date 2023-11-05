@@ -108,7 +108,9 @@ class evaluate_model:
 
 		"""
 		try:
-			self.data = "Training_Data_prediction/Cluster_data.csv"
+			#self.data = "Training_Data_prediction/Cluster_data.csv"
+			self.data = self.model_prediction()
+   
 			result = "Training_Data_prediction/Modelprediction.csv"
 			self.df = pd.read_csv(self.data)
 			clusters = self.df["clusters"]
@@ -134,10 +136,10 @@ class evaluate_model:
 
 
 
-a = evaluate_model()
-a.model_prediction()
-a.calculate_metrics_score()
-print("done")
+#a = evaluate_model()
+#a.model_prediction()
+#a.calculate_metrics_score()
+#print("done")
 
 
 

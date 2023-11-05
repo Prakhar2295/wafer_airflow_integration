@@ -35,14 +35,14 @@ class data_loader_from_s3:
     
     def download_files(self):
         
-        self.file_names = get_file_names()
+        self.file_names = self.get_file_names()
         
         for file in self.file_names:
             if not os.path.isdir(self.local_folder):
                 os.makedirs(self.local_folder)
-            else:
-                file_path = os.path.join(self.local_folder,file)
-                self.s3_client.download_file(self.bucket_name,file,str(file_path))
+            
+            file_path = os.path.join(self.local_folder,file)
+            self.s3_client.download_file(self.bucket_name,file,str(file_path))
                 
                 
         

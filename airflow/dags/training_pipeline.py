@@ -11,6 +11,8 @@ import pendulum
 from data_ingestion.data_from_s3_bucket import data_loader_from_s3
 #from Training_raw_data_validation.rawvalidation import Raw_Data_Validation
 from training_Validation_insertion import train_validation
+from trainingModel import trainmodel
+from Model_evaluation import 
 # The DAG object; we'll need this to instantiate a DAG
 from airflow.models.dag import DAG
 
@@ -19,7 +21,8 @@ path = "raw_data_from_s3"
 
 from airflow.operators.python import PythonOperator
 #raw_data = Raw_Data_Validation(path)
-
+raw_validation = train_validation(path)
+train = trainmodel()
 # [END import_module]
 
 # [START instantiate_dag]
@@ -42,23 +45,24 @@ with DAG(
     # [END documentation]
     
     
-    def data_ingestion(ti):
+    def data_ingestion(**kwargs):
+        ti = kwargs["ti"]
         get_data = data_loader_from_s3()
         raw_data = get_data.download_files()
         ti.xcom_push('data_ingestion',raw_data)
         
         
-    def values_from_schema(**kwargs):
+    def data_validation(**kwargs):
         ti = kwargs["ti"]
-        file_name_schema = raw_data.valuesFromSchema()
-        ti.xcom_push('file_name_schema',file_name_schema)
+        valid_data = raw_validation.train_validation()
+        ti.xcom_push('valid_data',valid_data)
 
-    def regex_creation(**kwargs):
+    def model_training(**kwargs):
         ti = kwargs["ti"]
-        regex_schema = raw_data.manualregexcreation()
-        ti.xcom_push('regex_schema',regex_schema)
+        model_trained = train.trainingmodel()
+        ti.xcom_push('trained_model',model_trained)
 
-    def file_name_validation(**kwargs):
+    def model_evaluation(**kwargs):
         ti = kwargs["ti"]
         extract_file_name_schema = ti.xcom_pull(task_ids = 'values_from_schema',key = 'file_name_schema')
         LengthOfDateStampInFile,LengthOfTimeStampInFile,column_names,NumberofColumns = extract_file_name_schema
