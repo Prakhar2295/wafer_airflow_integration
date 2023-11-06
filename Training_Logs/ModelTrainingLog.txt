@@ -1,0 +1,101 @@
+2023-11-06/01:58:53		Start Of Training!!
+2023-11-06/01:58:53		Entered the get_data method of the Data Gtter class
+2023-11-06/01:58:53		Data Load Successfull.Exited the get_data method of the Data Getter class
+2023-11-06/01:58:53		Entered the remove column method of the preprocessing class
+2023-11-06/01:58:53		Column Removal Successfull it's names are:: ['Unnamed: 0', 'Wafer']
+2023-11-06/01:58:53		Removal of columns done successfully.Exited the remove column methods from preprocessor class
+2023-11-06/01:58:53		Entered the separate the label feature method inside the preprocessing class
+2023-11-06/01:58:53		Exiting the separate label features method
+2023-11-06/01:58:53		Entered the is_null_present method in preprocessing class
+2023-11-06/01:58:53		Exception occurred in is_bull_present method of the preprocessing class.Exception mesaages [Errno 2] No such file or directory: 'preprocessing_data/null_values.csv'
+2023-11-06/01:58:53		Find missing values failed for preprocessing class.Exiting the is_null_present method of the preprocessing class
+2023-11-06/02:08:17		Start Of Training!!
+2023-11-06/02:08:17		Entered the get_data method of the Data Gtter class
+2023-11-06/02:08:17		Data Load Successfull.Exited the get_data method of the Data Getter class
+2023-11-06/02:08:17		Entered the remove column method of the preprocessing class
+2023-11-06/02:08:17		Column Removal Successfull it's names are:: ['Unnamed: 0', 'Wafer']
+2023-11-06/02:08:17		Removal of columns done successfully.Exited the remove column methods from preprocessor class
+2023-11-06/02:08:17		Entered the separate the label feature method inside the preprocessing class
+2023-11-06/02:08:17		Exiting the separate label features method
+2023-11-06/02:08:17		Entered the is_null_present method in preprocessing class
+2023-11-06/02:08:17		Finding Null values is a success.Data written to null values file.Exiting the is_nul_present method
+2023-11-06/02:08:17		Entered the impute missing values method of the preprocessing class
+2023-11-06/02:08:18		Imputing the missing values succesfull exiting the impute values method
+2023-11-06/02:08:18		Entered inside the method get columns with zero standard deviation in preprocessing class
+2023-11-06/02:08:20		Column Search for standard with zero is successsfull.Exiting from this method inside the preprocessing class
+2023-11-06/02:08:20		Entered the remove column method of the preprocessing class
+2023-11-06/02:08:20		Column Removal Successfull it's names are:: ['Sensor - 6', 'Sensor - 14', 'Sensor - 43', 'Sensor - 50', 'Sensor - 53', 'Sensor - 70', 'Sensor - 98', 'Sensor - 142', 'Sensor - 150', 'Sensor - 179', 'Sensor - 180', 'Sensor - 187', 'Sensor - 190', 'Sensor - 191', 'Sensor - 192', 'Sensor - 193', 'Sensor - 194', 'Sensor - 195', 'Sensor - 227', 'Sensor - 230', 'Sensor - 231', 'Sensor - 232', 'Sensor - 233', 'Sensor - 234', 'Sensor - 235', 'Sensor - 236', 'Sensor - 237', 'Sensor - 238', 'Sensor - 241', 'Sensor - 242', 'Sensor - 243', 'Sensor - 244', 'Sensor - 257', 'Sensor - 258', 'Sensor - 259', 'Sensor - 260', 'Sensor - 261', 'Sensor - 262', 'Sensor - 263', 'Sensor - 264', 'Sensor - 265', 'Sensor - 266', 'Sensor - 267', 'Sensor - 277', 'Sensor - 285', 'Sensor - 314', 'Sensor - 315', 'Sensor - 316', 'Sensor - 323', 'Sensor - 326', 'Sensor - 327', 'Sensor - 328', 'Sensor - 329', 'Sensor - 330', 'Sensor - 331', 'Sensor - 365', 'Sensor - 370', 'Sensor - 371', 'Sensor - 372', 'Sensor - 373', 'Sensor - 374', 'Sensor - 375', 'Sensor - 376', 'Sensor - 379', 'Sensor - 380', 'Sensor - 381', 'Sensor - 382', 'Sensor - 395', 'Sensor - 396', 'Sensor - 397', 'Sensor - 398', 'Sensor - 399', 'Sensor - 400', 'Sensor - 401', 'Sensor - 402', 'Sensor - 403', 'Sensor - 404', 'Sensor - 405', 'Sensor - 415', 'Sensor - 423', 'Sensor - 450', 'Sensor - 451', 'Sensor - 452', 'Sensor - 459', 'Sensor - 462', 'Sensor - 463', 'Sensor - 464', 'Sensor - 465', 'Sensor - 466', 'Sensor - 467', 'Sensor - 482', 'Sensor - 499', 'Sensor - 502', 'Sensor - 503', 'Sensor - 504', 'Sensor - 505', 'Sensor - 506', 'Sensor - 507', 'Sensor - 508', 'Sensor - 509', 'Sensor - 510', 'Sensor - 513', 'Sensor - 514', 'Sensor - 515', 'Sensor - 516', 'Sensor - 529', 'Sensor - 530', 'Sensor - 531', 'Sensor - 532', 'Sensor - 533', 'Sensor - 534', 'Sensor - 535', 'Sensor - 536', 'Sensor - 537', 'Sensor - 538', 'Sensor - 539']
+2023-11-06/02:10:02		Start Of Training!!
+2023-11-06/02:10:02		Entered the get_data method of the Data Gtter class
+2023-11-06/02:10:02		Data Load Successfull.Exited the get_data method of the Data Getter class
+2023-11-06/02:10:02		Entered the remove column method of the preprocessing class
+2023-11-06/02:10:02		Column Removal Successfull it's names are:: ['Unnamed: 0', 'Wafer']
+2023-11-06/02:10:02		Removal of columns done successfully.Exited the remove column methods from preprocessor class
+2023-11-06/02:10:02		Entered the separate the label feature method inside the preprocessing class
+2023-11-06/02:10:02		Exiting the separate label features method
+2023-11-06/02:10:02		Entered the is_null_present method in preprocessing class
+2023-11-06/02:10:02		Finding Null values is a success.Data written to null values file.Exiting the is_nul_present method
+2023-11-06/02:10:02		Entered the impute missing values method of the preprocessing class
+2023-11-06/02:10:03		Imputing the missing values succesfull exiting the impute values method
+2023-11-06/02:10:03		Entered inside the method get columns with zero standard deviation in preprocessing class
+2023-11-06/02:10:04		Column Search for standard with zero is successsfull.Exiting from this method inside the preprocessing class
+2023-11-06/02:10:04		Entered the remove column method of the preprocessing class
+2023-11-06/02:10:04		Column Removal Successfull it's names are:: ['Sensor - 6', 'Sensor - 14', 'Sensor - 43', 'Sensor - 50', 'Sensor - 53', 'Sensor - 70', 'Sensor - 98', 'Sensor - 142', 'Sensor - 150', 'Sensor - 179', 'Sensor - 180', 'Sensor - 187', 'Sensor - 190', 'Sensor - 191', 'Sensor - 192', 'Sensor - 193', 'Sensor - 194', 'Sensor - 195', 'Sensor - 227', 'Sensor - 230', 'Sensor - 231', 'Sensor - 232', 'Sensor - 233', 'Sensor - 234', 'Sensor - 235', 'Sensor - 236', 'Sensor - 237', 'Sensor - 238', 'Sensor - 241', 'Sensor - 242', 'Sensor - 243', 'Sensor - 244', 'Sensor - 257', 'Sensor - 258', 'Sensor - 259', 'Sensor - 260', 'Sensor - 261', 'Sensor - 262', 'Sensor - 263', 'Sensor - 264', 'Sensor - 265', 'Sensor - 266', 'Sensor - 267', 'Sensor - 277', 'Sensor - 285', 'Sensor - 314', 'Sensor - 315', 'Sensor - 316', 'Sensor - 323', 'Sensor - 326', 'Sensor - 327', 'Sensor - 328', 'Sensor - 329', 'Sensor - 330', 'Sensor - 331', 'Sensor - 365', 'Sensor - 370', 'Sensor - 371', 'Sensor - 372', 'Sensor - 373', 'Sensor - 374', 'Sensor - 375', 'Sensor - 376', 'Sensor - 379', 'Sensor - 380', 'Sensor - 381', 'Sensor - 382', 'Sensor - 395', 'Sensor - 396', 'Sensor - 397', 'Sensor - 398', 'Sensor - 399', 'Sensor - 400', 'Sensor - 401', 'Sensor - 402', 'Sensor - 403', 'Sensor - 404', 'Sensor - 405', 'Sensor - 415', 'Sensor - 423', 'Sensor - 450', 'Sensor - 451', 'Sensor - 452', 'Sensor - 459', 'Sensor - 462', 'Sensor - 463', 'Sensor - 464', 'Sensor - 465', 'Sensor - 466', 'Sensor - 467', 'Sensor - 482', 'Sensor - 499', 'Sensor - 502', 'Sensor - 503', 'Sensor - 504', 'Sensor - 505', 'Sensor - 506', 'Sensor - 507', 'Sensor - 508', 'Sensor - 509', 'Sensor - 510', 'Sensor - 513', 'Sensor - 514', 'Sensor - 515', 'Sensor - 516', 'Sensor - 529', 'Sensor - 530', 'Sensor - 531', 'Sensor - 532', 'Sensor - 533', 'Sensor - 534', 'Sensor - 535', 'Sensor - 536', 'Sensor - 537', 'Sensor - 538', 'Sensor - 539']
+2023-11-06/02:11:36		Start Of Training!!
+2023-11-06/02:11:36		Entered the get_data method of the Data Gtter class
+2023-11-06/02:11:36		Data Load Successfull.Exited the get_data method of the Data Getter class
+2023-11-06/02:11:36		Entered the remove column method of the preprocessing class
+2023-11-06/02:11:36		Column Removal Successfull it's names are:: ['Unnamed: 0', 'Wafer']
+2023-11-06/02:11:36		Removal of columns done successfully.Exited the remove column methods from preprocessor class
+2023-11-06/02:11:36		Entered the separate the label feature method inside the preprocessing class
+2023-11-06/02:11:36		Exiting the separate label features method
+2023-11-06/02:11:36		Entered the is_null_present method in preprocessing class
+2023-11-06/02:11:36		Finding Null values is a success.Data written to null values file.Exiting the is_nul_present method
+2023-11-06/02:11:36		Entered the impute missing values method of the preprocessing class
+2023-11-06/02:11:37		Imputing the missing values succesfull exiting the impute values method
+2023-11-06/02:11:37		Entered inside the method get columns with zero standard deviation in preprocessing class
+2023-11-06/02:11:38		Column Search for standard with zero is successsfull.Exiting from this method inside the preprocessing class
+2023-11-06/02:11:38		Entered the remove column method of the preprocessing class
+2023-11-06/02:11:38		Column Removal Successfull it's names are:: ['Sensor - 6', 'Sensor - 14', 'Sensor - 43', 'Sensor - 50', 'Sensor - 53', 'Sensor - 70', 'Sensor - 98', 'Sensor - 142', 'Sensor - 150', 'Sensor - 179', 'Sensor - 180', 'Sensor - 187', 'Sensor - 190', 'Sensor - 191', 'Sensor - 192', 'Sensor - 193', 'Sensor - 194', 'Sensor - 195', 'Sensor - 227', 'Sensor - 230', 'Sensor - 231', 'Sensor - 232', 'Sensor - 233', 'Sensor - 234', 'Sensor - 235', 'Sensor - 236', 'Sensor - 237', 'Sensor - 238', 'Sensor - 241', 'Sensor - 242', 'Sensor - 243', 'Sensor - 244', 'Sensor - 257', 'Sensor - 258', 'Sensor - 259', 'Sensor - 260', 'Sensor - 261', 'Sensor - 262', 'Sensor - 263', 'Sensor - 264', 'Sensor - 265', 'Sensor - 266', 'Sensor - 267', 'Sensor - 277', 'Sensor - 285', 'Sensor - 314', 'Sensor - 315', 'Sensor - 316', 'Sensor - 323', 'Sensor - 326', 'Sensor - 327', 'Sensor - 328', 'Sensor - 329', 'Sensor - 330', 'Sensor - 331', 'Sensor - 365', 'Sensor - 370', 'Sensor - 371', 'Sensor - 372', 'Sensor - 373', 'Sensor - 374', 'Sensor - 375', 'Sensor - 376', 'Sensor - 379', 'Sensor - 380', 'Sensor - 381', 'Sensor - 382', 'Sensor - 395', 'Sensor - 396', 'Sensor - 397', 'Sensor - 398', 'Sensor - 399', 'Sensor - 400', 'Sensor - 401', 'Sensor - 402', 'Sensor - 403', 'Sensor - 404', 'Sensor - 405', 'Sensor - 415', 'Sensor - 423', 'Sensor - 450', 'Sensor - 451', 'Sensor - 452', 'Sensor - 459', 'Sensor - 462', 'Sensor - 463', 'Sensor - 464', 'Sensor - 465', 'Sensor - 466', 'Sensor - 467', 'Sensor - 482', 'Sensor - 499', 'Sensor - 502', 'Sensor - 503', 'Sensor - 504', 'Sensor - 505', 'Sensor - 506', 'Sensor - 507', 'Sensor - 508', 'Sensor - 509', 'Sensor - 510', 'Sensor - 513', 'Sensor - 514', 'Sensor - 515', 'Sensor - 516', 'Sensor - 529', 'Sensor - 530', 'Sensor - 531', 'Sensor - 532', 'Sensor - 533', 'Sensor - 534', 'Sensor - 535', 'Sensor - 536', 'Sensor - 537', 'Sensor - 538', 'Sensor - 539']
+2023-11-06/14:08:24		Start Of Training!!
+2023-11-06/14:08:25		Entered the remove column method of the preprocessing class
+2023-11-06/14:08:25		Column Removal Successfull it's names are:: ['Unnamed: 0', 'Wafer']
+2023-11-06/14:08:25		Removal of columns done successfully.Exited the remove column methods from preprocessor class
+2023-11-06/14:08:25		Entered the separate the label feature method inside the preprocessing class
+2023-11-06/14:08:25		Exiting the separate label features method
+2023-11-06/14:08:25		Entered the is_null_present method in preprocessing class
+2023-11-06/14:08:25		Finding Null values is a success.Data written to null values file.Exiting the is_nul_present method
+2023-11-06/14:08:25		Entered the impute missing values method of the preprocessing class
+2023-11-06/14:08:26		Imputing the missing values succesfull exiting the impute values method
+2023-11-06/14:08:26		Entered inside the method get columns with zero standard deviation in preprocessing class
+2023-11-06/14:08:27		Column Search for standard with zero is successsfull.Exiting from this method inside the preprocessing class
+2023-11-06/14:08:27		Entered the remove column method of the preprocessing class
+2023-11-06/14:08:27		Column Removal Successfull it's names are:: ['Sensor - 6', 'Sensor - 14', 'Sensor - 43', 'Sensor - 50', 'Sensor - 53', 'Sensor - 70', 'Sensor - 98', 'Sensor - 142', 'Sensor - 150', 'Sensor - 179', 'Sensor - 180', 'Sensor - 187', 'Sensor - 190', 'Sensor - 191', 'Sensor - 192', 'Sensor - 193', 'Sensor - 194', 'Sensor - 195', 'Sensor - 227', 'Sensor - 230', 'Sensor - 231', 'Sensor - 232', 'Sensor - 233', 'Sensor - 234', 'Sensor - 235', 'Sensor - 236', 'Sensor - 237', 'Sensor - 238', 'Sensor - 241', 'Sensor - 242', 'Sensor - 243', 'Sensor - 244', 'Sensor - 257', 'Sensor - 258', 'Sensor - 259', 'Sensor - 260', 'Sensor - 261', 'Sensor - 262', 'Sensor - 263', 'Sensor - 264', 'Sensor - 265', 'Sensor - 266', 'Sensor - 267', 'Sensor - 277', 'Sensor - 285', 'Sensor - 314', 'Sensor - 315', 'Sensor - 316', 'Sensor - 323', 'Sensor - 326', 'Sensor - 327', 'Sensor - 328', 'Sensor - 329', 'Sensor - 330', 'Sensor - 331', 'Sensor - 365', 'Sensor - 370', 'Sensor - 371', 'Sensor - 372', 'Sensor - 373', 'Sensor - 374', 'Sensor - 375', 'Sensor - 376', 'Sensor - 379', 'Sensor - 380', 'Sensor - 381', 'Sensor - 382', 'Sensor - 395', 'Sensor - 396', 'Sensor - 397', 'Sensor - 398', 'Sensor - 399', 'Sensor - 400', 'Sensor - 401', 'Sensor - 402', 'Sensor - 403', 'Sensor - 404', 'Sensor - 405', 'Sensor - 415', 'Sensor - 423', 'Sensor - 450', 'Sensor - 451', 'Sensor - 452', 'Sensor - 459', 'Sensor - 462', 'Sensor - 463', 'Sensor - 464', 'Sensor - 465', 'Sensor - 466', 'Sensor - 467', 'Sensor - 482', 'Sensor - 499', 'Sensor - 502', 'Sensor - 503', 'Sensor - 504', 'Sensor - 505', 'Sensor - 506', 'Sensor - 507', 'Sensor - 508', 'Sensor - 509', 'Sensor - 510', 'Sensor - 513', 'Sensor - 514', 'Sensor - 515', 'Sensor - 516', 'Sensor - 529', 'Sensor - 530', 'Sensor - 531', 'Sensor - 532', 'Sensor - 533', 'Sensor - 534', 'Sensor - 535', 'Sensor - 536', 'Sensor - 537', 'Sensor - 538', 'Sensor - 539']
+2023-11-06/14:10:56		Start Of Training!!
+2023-11-06/14:10:56		Entered the remove column method of the preprocessing class
+2023-11-06/14:10:56		Column Removal Successfull it's names are:: ['Unnamed: 0', 'Wafer']
+2023-11-06/14:10:56		Removal of columns done successfully.Exited the remove column methods from preprocessor class
+2023-11-06/14:10:56		Entered the separate the label feature method inside the preprocessing class
+2023-11-06/14:10:56		Exiting the separate label features method
+2023-11-06/14:10:56		Entered the is_null_present method in preprocessing class
+2023-11-06/14:10:56		Finding Null values is a success.Data written to null values file.Exiting the is_nul_present method
+2023-11-06/14:10:56		Entered the impute missing values method of the preprocessing class
+2023-11-06/14:10:57		Imputing the missing values succesfull exiting the impute values method
+2023-11-06/14:10:57		Entered inside the method get columns with zero standard deviation in preprocessing class
+2023-11-06/14:10:58		Column Search for standard with zero is successsfull.Exiting from this method inside the preprocessing class
+2023-11-06/14:10:58		Entered the remove column method of the preprocessing class
+2023-11-06/14:10:58		Column Removal Successfull it's names are:: ['Sensor - 6', 'Sensor - 14', 'Sensor - 43', 'Sensor - 50', 'Sensor - 53', 'Sensor - 70', 'Sensor - 98', 'Sensor - 142', 'Sensor - 150', 'Sensor - 179', 'Sensor - 180', 'Sensor - 187', 'Sensor - 190', 'Sensor - 191', 'Sensor - 192', 'Sensor - 193', 'Sensor - 194', 'Sensor - 195', 'Sensor - 227', 'Sensor - 230', 'Sensor - 231', 'Sensor - 232', 'Sensor - 233', 'Sensor - 234', 'Sensor - 235', 'Sensor - 236', 'Sensor - 237', 'Sensor - 238', 'Sensor - 241', 'Sensor - 242', 'Sensor - 243', 'Sensor - 244', 'Sensor - 257', 'Sensor - 258', 'Sensor - 259', 'Sensor - 260', 'Sensor - 261', 'Sensor - 262', 'Sensor - 263', 'Sensor - 264', 'Sensor - 265', 'Sensor - 266', 'Sensor - 267', 'Sensor - 277', 'Sensor - 285', 'Sensor - 314', 'Sensor - 315', 'Sensor - 316', 'Sensor - 323', 'Sensor - 326', 'Sensor - 327', 'Sensor - 328', 'Sensor - 329', 'Sensor - 330', 'Sensor - 331', 'Sensor - 365', 'Sensor - 370', 'Sensor - 371', 'Sensor - 372', 'Sensor - 373', 'Sensor - 374', 'Sensor - 375', 'Sensor - 376', 'Sensor - 379', 'Sensor - 380', 'Sensor - 381', 'Sensor - 382', 'Sensor - 395', 'Sensor - 396', 'Sensor - 397', 'Sensor - 398', 'Sensor - 399', 'Sensor - 400', 'Sensor - 401', 'Sensor - 402', 'Sensor - 403', 'Sensor - 404', 'Sensor - 405', 'Sensor - 415', 'Sensor - 423', 'Sensor - 450', 'Sensor - 451', 'Sensor - 452', 'Sensor - 459', 'Sensor - 462', 'Sensor - 463', 'Sensor - 464', 'Sensor - 465', 'Sensor - 466', 'Sensor - 467', 'Sensor - 482', 'Sensor - 499', 'Sensor - 502', 'Sensor - 503', 'Sensor - 504', 'Sensor - 505', 'Sensor - 506', 'Sensor - 507', 'Sensor - 508', 'Sensor - 509', 'Sensor - 510', 'Sensor - 513', 'Sensor - 514', 'Sensor - 515', 'Sensor - 516', 'Sensor - 529', 'Sensor - 530', 'Sensor - 531', 'Sensor - 532', 'Sensor - 533', 'Sensor - 534', 'Sensor - 535', 'Sensor - 536', 'Sensor - 537', 'Sensor - 538', 'Sensor - 539']
+2023-11-06/14:13:42		Start Of Training!!
+2023-11-06/14:13:42		Entered the remove column method of the preprocessing class
+2023-11-06/14:13:42		Column Removal Successfull it's names are:: ['Unnamed: 0', 'Wafer']
+2023-11-06/14:13:42		Removal of columns done successfully.Exited the remove column methods from preprocessor class
+2023-11-06/14:13:42		Entered the separate the label feature method inside the preprocessing class
+2023-11-06/14:13:42		Exiting the separate label features method
+2023-11-06/14:13:42		Entered the is_null_present method in preprocessing class
+2023-11-06/14:13:42		Finding Null values is a success.Data written to null values file.Exiting the is_nul_present method
+2023-11-06/14:13:42		Entered the impute missing values method of the preprocessing class
+2023-11-06/14:13:43		Imputing the missing values succesfull exiting the impute values method
+2023-11-06/14:13:43		Entered inside the method get columns with zero standard deviation in preprocessing class
+2023-11-06/14:13:44		Column Search for standard with zero is successsfull.Exiting from this method inside the preprocessing class
+2023-11-06/14:13:44		Entered the remove column method of the preprocessing class
+2023-11-06/14:13:44		Column Removal Successfull it's names are:: ['Sensor - 6', 'Sensor - 14', 'Sensor - 43', 'Sensor - 50', 'Sensor - 53', 'Sensor - 70', 'Sensor - 98', 'Sensor - 142', 'Sensor - 150', 'Sensor - 179', 'Sensor - 180', 'Sensor - 187', 'Sensor - 190', 'Sensor - 191', 'Sensor - 192', 'Sensor - 193', 'Sensor - 194', 'Sensor - 195', 'Sensor - 227', 'Sensor - 230', 'Sensor - 231', 'Sensor - 232', 'Sensor - 233', 'Sensor - 234', 'Sensor - 235', 'Sensor - 236', 'Sensor - 237', 'Sensor - 238', 'Sensor - 241', 'Sensor - 242', 'Sensor - 243', 'Sensor - 244', 'Sensor - 257', 'Sensor - 258', 'Sensor - 259', 'Sensor - 260', 'Sensor - 261', 'Sensor - 262', 'Sensor - 263', 'Sensor - 264', 'Sensor - 265', 'Sensor - 266', 'Sensor - 267', 'Sensor - 277', 'Sensor - 285', 'Sensor - 314', 'Sensor - 315', 'Sensor - 316', 'Sensor - 323', 'Sensor - 326', 'Sensor - 327', 'Sensor - 328', 'Sensor - 329', 'Sensor - 330', 'Sensor - 331', 'Sensor - 365', 'Sensor - 370', 'Sensor - 371', 'Sensor - 372', 'Sensor - 373', 'Sensor - 374', 'Sensor - 375', 'Sensor - 376', 'Sensor - 379', 'Sensor - 380', 'Sensor - 381', 'Sensor - 382', 'Sensor - 395', 'Sensor - 396', 'Sensor - 397', 'Sensor - 398', 'Sensor - 399', 'Sensor - 400', 'Sensor - 401', 'Sensor - 402', 'Sensor - 403', 'Sensor - 404', 'Sensor - 405', 'Sensor - 415', 'Sensor - 423', 'Sensor - 450', 'Sensor - 451', 'Sensor - 452', 'Sensor - 459', 'Sensor - 462', 'Sensor - 463', 'Sensor - 464', 'Sensor - 465', 'Sensor - 466', 'Sensor - 467', 'Sensor - 482', 'Sensor - 499', 'Sensor - 502', 'Sensor - 503', 'Sensor - 504', 'Sensor - 505', 'Sensor - 506', 'Sensor - 507', 'Sensor - 508', 'Sensor - 509', 'Sensor - 510', 'Sensor - 513', 'Sensor - 514', 'Sensor - 515', 'Sensor - 516', 'Sensor - 529', 'Sensor - 530', 'Sensor - 531', 'Sensor - 532', 'Sensor - 533', 'Sensor - 534', 'Sensor - 535', 'Sensor - 536', 'Sensor - 537', 'Sensor - 538', 'Sensor - 539']

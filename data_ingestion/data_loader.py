@@ -32,15 +32,15 @@ class Data_Getter:
         Revisions: None
 
         """
-        self.logger_object.log(self.file_object,"Entered the get_data method of the Data Gtter class")
+       #self.logger_object.log(self.file_object,"Entered the get_data method of the Data Gtter class")
         try:
             self.data = pd.read_csv(self.training_file)  ###reading the training data
-            self.logger_object.log(self.file_object,"Data Load Successfull.Exited the get_data method of the Data Getter class")
+            #self.logger_object.log(self.file_object,"Data Load Successfull.Exited the get_data method of the Data Getter class")
             return self.data
 
         except Exception as e:
-            self.logger_object.log(self.file_object,'Exception occured in get_data method of the Data Getter class:' + str(e))
-            self.logger_object.log(self.file_object,"Data Load unsuccessfull.Exited the get_data method of the Data Getter class")
+            #self.logger_object.log(self.file_object,'Exception occured in get_data method of the Data Getter class:' + str(e))
+            #self.logger_object.log(self.file_object,"Data Load unsuccessfull.Exited the get_data method of the Data Getter class")
 
             raise Exception()
 

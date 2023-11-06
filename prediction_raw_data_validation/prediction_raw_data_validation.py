@@ -5,7 +5,6 @@ import json
 import shutil
 import pandas as pd
 from application_logging.logger import App_Logger
-from application_logging.mongodb_logger import mongodb_logger
 
 
 
@@ -21,8 +20,8 @@ class prediction_data_validation:
 
     def __init__(self,path):
         self.Batch_Directory = path
-        self.schema_path = 'D:/FSDS/MAchine_Learning/wafer_prometheus_grafana_monitor/Backend/schema_prediction.json'
-        self.logger = mongodb_logger()
+        self.schema_path = 'schema_prediction.json'
+        self.logger = App_Logger()
 
 
     def values_from_schema(self):
@@ -47,30 +46,30 @@ class prediction_data_validation:
             column_names = dic['ColName']
             NumberofColumns = dic['NumberofColumns']
 
-            #file = open("prediction_logs/valuesfromSchemaValidationLog.txt", 'a+')
+            file = open("prediction_logs/valuesfromSchemaValidationLog.txt", 'a+')
             message ="LengthOfDateStampInFile:: %s" %LengthOfDateStampInFile + "\t" + "LengthOfTimeStampInFile:: %s" % LengthOfTimeStampInFile +"\t " + "NumberofColumns:: %s" % NumberofColumns + "\n"
-            self.logger.insert_records_into_collection("wafer","values_from_schema",message)
+            self.logger.log(file,message)
 
-            #file.close()
+            file.close()
 
 
 
         except ValueError:
-            #file = open("prediction_Logs/valuesfromSchemaValidationLog.txt", 'a+')
-            self.logger.insert_records_into_collection("wafer","values_from_schema","ValueError:Value not found inside schema_training.json")
-            #file.close()
+            file = open("prediction_Logs/valuesfromSchemaValidationLog.txt", 'a+')
+            self.logger.log(file,"ValueError:Value not found inside schema_training.json")
+            file.close()
             raise ValueError
 
         except KeyError:
-            #file = open("prediction_Logs/valuesfromSchemaValidationLog.txt", 'a+')
-            self.logger.insert_records_into_collection("wafer","values_from_schema", "KeyError:Key value error incorrect key passed")
-            #file.close()
+            file = open("prediction_Logs/valuesfromSchemaValidationLog.txt", 'a+')
+            self.logger.log(file, "KeyError:Key value error incorrect key passed")
+            file.close()
             raise KeyError
 
         except Exception as e:
-            #file = open("prediction_Logs/valuesfromSchemaValidationLog.txt", 'a+')
-            self.logger.insert_records_into_collection("wafer","values_from_schema", str(e))
-            #file.close()
+            file = open("prediction_Logs/valuesfromSchemaValidationLog.txt", 'a+')
+            self.logger.log(file, str(e))
+            file.close()
             raise e
 
         return LengthOfDateStampInFile, LengthOfTimeStampInFile, column_names, NumberofColumns
@@ -109,9 +108,9 @@ class prediction_data_validation:
 
         """
         try:
-            #file = open("prediction_logs/General_logs.txt",'a+')
-            self.logger.insert_records_into_collection("wafer","General_logs","Entered inside the createdirectoryforGoodBadpredictiondata method inside prediction raw data class")
-            #file.close()
+            file = open("prediction_logs/General_logs.txt",'a+')
+            self.logger.log(file,"Entered inside the createdirectoryforGoodBadpredictiondata method inside prediction raw data class")
+            file.close()
             Good_data_path = "Raw_prediction_data/Good_data"
             Bad_data_path = "Raw_prediction_data/Bad_data"
 
@@ -120,12 +119,12 @@ class prediction_data_validation:
 
             if not os.path.isdir(Bad_data_path):
                 os.makedirs(Bad_data_path)
-            #file = open("prediction_logs/General_logs.txt",'a+')
-            self.logger.insert_records_into_collection("wafer","General_logs","Created Directory for good data and bad data:: %s" %Good_data_path)
-            #file.close()
+            file = open("prediction_logs/General_logs.txt",'a+')
+            self.logger.log(file,"Created Directory for good data and bad data:: %s" %Good_data_path)
+            file.close()
         except OSError:
-            #file = open("prediction_logs/General_logs.txt",'a+')
-            self.logger.insert_records_into_collection("wafer","General_logs", "Error Occurred while creating directory %s" %OSError )
+            file = open("prediction_logs/General_logs.txt",'a+')
+            self.logger.log(file, "Error Occurred while creating directory %s" %OSError )
             raise OSError
 
     def deletedirectoryforGooddata(self):
@@ -142,9 +141,9 @@ class prediction_data_validation:
               Revisions: None
 
         """
-        #file = open("prediction_logs/General_logs.txt",'a+')
-        self.logger.insert_records_into_collection("wafer","General_logs","Entered inside deletedirectoryforGooddata inside prediction_raw_data class")
-        #file.close()
+        file = open("prediction_logs/General_logs.txt",'a+')
+        self.logger.log(file,"Entered inside deletedirectoryforGooddata inside prediction_raw_data class")
+        file.close()
 
         #Bad_data_path = "Raw_prediction_data/Bad_data"
         try:
@@ -152,14 +151,14 @@ class prediction_data_validation:
             if os.path.isdir(Good_data_path):
                 shutil.rmtree(Good_data_path)
 
-            #file = open("prediction_logs/General_logs.txt", 'a+')
-            self.logger.insert_records_into_collection("wafer","General_logs", "Deleted good data directory Successfully!!")
-            #file.close()
+            file = open("prediction_logs/General_logs.txt", 'a+')
+            self.logger.log(file, "Deleted good data directory Successfully!!")
+            file.close()
 
         except OSError as e:
-            #file = open("prediction_logs/General_logs.txt", 'a+')
-            self.logger.insert_records_into_collection("wafer","General_logs", "Error Occurred while deleting the good data dat directory.Exception Message::" + str(e))
-            #file.close()
+            file = open("prediction_logs/General_logs.txt", 'a+')
+            self.logger.log(file, "Error Occurred while deleting the good data dat directory.Exception Message::" + str(e))
+            file.close()
             raise OSError
 
 
@@ -177,9 +176,9 @@ class prediction_data_validation:
               Revisions: None
 
         """
-        #file = open("prediction_logs/General_logs.txt", 'a+')
-        self.logger.insert_records_into_collection("wafer","General_logs", "Entered inside deletedirectoryforBaddata method inside prediction_raw_data class")
-        #file.close()
+        file = open("prediction_logs/General_logs.txt", 'a+')
+        self.logger.log(file, "Entered inside deletedirectoryforBaddata method inside prediction_raw_data class")
+        file.close()
         #Good_data_path = "Raw_prediction_data/Good_data"
 
         try:
@@ -187,14 +186,14 @@ class prediction_data_validation:
             if os.path.isdir(Bad_data_path):
                 shutil.rmtree(Bad_data_path)
 
-            #file = open("prediction_logs/General_logs.txt", 'a+')
-            self.logger.insert_records_into_collection("wafer","General_logs", "Deleted bad data directory Successfully!!")
-            #file.close()
+            file = open("prediction_logs/General_logs.txt", 'a+')
+            self.logger.log(file, "Deleted bad data directory Successfully!!")
+            file.close()
 
         except OSError as e:
-            #file = open("prediction_logs/General_logs.txt", 'a+')
-            self.logger.insert_records_into_collection("wafer","General_logs", "Error Occurred while deleting the bad data directory.Exception Message::" + str(e))
-            #file.close()
+            file = open("prediction_logs/General_logs.txt", 'a+')
+            self.logger.log(file, "Error Occurred while deleting the bad data directory.Exception Message::" + str(e))
+            file.close()
             raise OSError
 
     def moveBadDatatoArchivebad(self):
@@ -217,9 +216,9 @@ class prediction_data_validation:
         date = now.date()
         time = now.strftime("%H%M%S")
         try:
-            #file = open("prediction_logs/General_logs.txt", 'a+')
-            self.logger.insert_records_into_collection("wafer","General_logs", "Entered inside moveBadDatatoArchivebad method inside prediction_raw_data class")
-            #file.close()
+            file = open("prediction_logs/General_logs.txt", 'a+')
+            self.logger.log(file, "Entered inside moveBadDatatoArchivebad method inside prediction_raw_data class")
+            file.close()
             Bad_data_path = "Raw_prediction_data/Bad_data"
             Archive_bad_path = "Prediction_Archive_Bad_data"
             if not os.path.isdir(Archive_bad_path):
@@ -232,18 +231,18 @@ class prediction_data_validation:
             for file in os.listdir(src_path):
                 if file not in os.listdir(dest_path):
                     shutil.move(src_path + "/" + file,dest_path)
-            #f = open("prediction_logs/General_logs.txt", 'a+')
-            self.logger.insert_records_into_collection("wafer","General_logs", "Successfully moved the Bad files to Archive bad Directory!!")
-            #f.close()
+            f = open("prediction_logs/General_logs.txt", 'a+')
+            self.logger.log(f, "Successfully moved the Bad files to Archive bad Directory!!")
+            f.close()
             if os.path.isdir(Bad_data_path):
                 shutil.rmtree(Bad_data_path)
-            #f = open("prediction_logs/General_logs.txt", 'a+')
-            self.logger.insert_records_into_collection("wafer","General_logs", "Successfully Deleted the Bad data directory!!")
-            #f.close()
+            f = open("prediction_logs/General_logs.txt", 'a+')
+            self.logger.log(f, "Successfully Deleted the Bad data directory!!")
+            f.close()
         except OSError as e:
-            #file = open("prediction_logs/General_logs.txt", 'a+')
-            self.logger.insert_records_into_collection("wafer","General_logs", "Error occurred while moving the bad data files to archive bad directory!!.Exception Message:: %s" %e)
-            #file.close()
+            file = open("prediction_logs/General_logs.txt", 'a+')
+            self.logger.log(file, "Error occurred while moving the bad data files to archive bad directory!!.Exception Message:: %s" %e)
+            file.close()
             raise e
 
     def raw_file_name_validation(self,regex,LengthOfDateStampInFile):
@@ -271,9 +270,9 @@ class prediction_data_validation:
         self.createdirectoryforGoodBadpredictiondata()
 
         try:
-            #file = open("prediction_logs/name_validation_logs.txt", 'a+')
-            #self.logger.insert_records_into_collection("name_validation_logs","Entered the raw_file_name_validation method of prediction_data_validation")
-            #file.close()
+            file = open("prediction_logs/name_validation_logs.txt", 'a+')
+            self.logger.log(file,"Entered the raw_file_name_validation method of prediction_data_validation")
+            file.close()
             Bad_data_path = "Raw_prediction_data/Bad_data"
             Good_data_path = "Raw_prediction_data/Good_data"
             for file in os.listdir(self.Batch_Directory):
@@ -284,38 +283,38 @@ class prediction_data_validation:
                     if len(file_name[1]) == LengthOfDateStampInFile:
                         if file not in os.listdir(Good_data_path):
                             shutil.copy(file_path,Good_data_path)
-                            #f = open("prediction_logs/name_validation_logs.txt", 'a+')
-                            self.logger.insert_records_into_collection("wafer","name_validation_logs","Copied the valid file to good_data folder %s" %file)
-                            #f.close()
+                            f = open("prediction_logs/name_validation_logs.txt", 'a+')
+                            self.logger.log(f,"Copied the valid file to good_data folder %s" %file)
+                            f.close()
                         else:
                             pass
                     elif file not in os.listdir(Bad_data_path):
                         shutil.copy(file_path,Bad_data_path)
-                        #f = open("prediction_logs/name_validation_logs.txt", 'a+')
-                        self.logger.insert_records_into_collection("wafer","name_validation_logs", "Copied the invalid file to bad_data folder %s" % file)
-                        #f.close()
+                        f = open("prediction_logs/name_validation_logs.txt", 'a+')
+                        self.logger.log(f, "Copied the invalid file to bad_data folder %s" % file)
+                        f.close()
 
                     else:
                         pass
 
                 elif file not in os.listdir(Bad_data_path):
                     shutil.copy(file_path ,Bad_data_path)
-                    #f = open("prediction_logs/name_validation_logs.txt", 'a+')
-                    self.logger.insert_records_into_collection("wafer","name_validation_logs", "Copied the invalid file to bad_data folder %s" % file)
-                    #f.close()
+                    f = open("prediction_logs/name_validation_logs.txt", 'a+')
+                    self.logger.log(f, "Copied the invalid file to bad_data folder %s" % file)
+                    f.close()
 
                 else:
                     pass
 
         except OSError:
-            #f = open("prediction_logs/name_validation_logs.txt", 'a+')
-            self.logger.insert_records_into_collection("wafer","name_validation_logs", "Error occurred while moving files to good data and bad data folder %s" %OSError)
-            #f.close()
+            f = open("prediction_logs/name_validation_logs.txt", 'a+')
+            self.logger.log(f, "Error occurred while moving files to good data and bad data folder %s" %OSError)
+            f.close()
             raise OSError
         except Exception as e:
-            #f = open("prediction_logs/name_validation_logs.txt", 'a+')
-            self.logger.insert_records_into_collection("wafer","name_validation_logs", "Exception occurred while moving files to good data and bad data folder %s" %e)
-            #f.close()
+            f = open("prediction_logs/name_validation_logs.txt", 'a+')
+            self.logger.log(f, "Exception occurred while moving files to good data and bad data folder %s" %e)
+            f.close()
             raise e
 
     def validateColumnLength(self,NumberofColumns):
@@ -334,9 +333,9 @@ class prediction_data_validation:
               Revisions: None
 
         """
-        #f = open("prediction_logs/column_validation_logs.txt", 'a+')
-        self.logger.insert_records_into_collection("wafer","column_validation_logs", "Entered the validateColumnLength method of prediction_data_validation")
-        #f.close()
+        f = open("prediction_logs/column_validation_logs.txt", 'a+')
+        self.logger.log(f, "Entered the validateColumnLength method of prediction_data_validation")
+        f.close()
         try:
             Good_data_path = "Raw_prediction_data/Good_data"
             Bad_data_path = "Raw_prediction_data/Bad_data"
@@ -347,24 +346,22 @@ class prediction_data_validation:
                     if df.shape[1] == NumberofColumns:
                         df.rename(columns = {"Unnamed: 0": "Wafer"},inplace = True)
                         df.to_csv(file_path,index = None,header = True)
-                        #f = open("prediction_logs/column_validation_logs.txt", 'a+')
-                        self.logger.insert_records_into_collection("wafer","column_validation_logs", "The file names with valid column lengths are :: %s" %file)
-                        #self.logger.insert_records_into_collection("column_validation_logs", "The column name has been renamed Successfully" % file)
-                        #f.close()
+                        f = open("prediction_logs/column_validation_logs.txt", 'a+')
+                        self.logger.log(f, "The file names with valid column lengths are :: %s" %file)
+                        self.logger.log(f, "The column name has been renamed Successfully" % file)
+                        f.close()
                     elif file not in os.listdir(Bad_data_path):
                         shutil.move(file_path,Bad_data_path)
                     else:
                         pass
         except OSError as e:
-            raise e
-            #f = open("prediction_logs/column_validation_logs.txt", 'a+')
-            self.logger.insert_records_into_collection("wafer","column_validation_logs", "Error occurred while validating the columns length %s" %e)
-            #f.close()
+            f = open("prediction_logs/column_validation_logs.txt", 'a+')
+            self.logger.log(f, "Error occurred while validating the columns length %s" %e)
+            f.close()
         except Exception as e:
-            raise e
-            #f = open("prediction_logs/column_validation_logs.txt", 'a+')
-            self.logger.insert_records_into_collection("wafer","column_validation_logs", "Exception occurred while validating the columns length %s" % e)
-            #f.close()
+            f = open("prediction_logs/column_validation_logs.txt", 'a+')
+            self.logger.log(f, "Exception occurred while validating the columns length %s" % e)
+            f.close()
 
     def deletepredictionfile(self):
 
@@ -391,8 +388,8 @@ class prediction_data_validation:
         Good_data_path = "Raw_prediction_data/Good_data"
         Bad_data_path = "Raw_prediction_data/Bad_data"
         try:
-            #f = open("prediction_logs/missingvaluesincolumn.txt", 'a+')
-            self.logger.insert_records_into_collection("wafer","missingvaluesincolumn", "Entered the validatemissingvaluesinwholecolumn method of prediction_data_validation")
+            f = open("prediction_logs/missingvaluesincolumn.txt", 'a+')
+            self.logger.log(f, "Entered the validatemissingvaluesinwholecolumn method of prediction_data_validation")
             for file in os.listdir(Good_data_path):
                 file_path = Good_data_path + '/' + file
                 if file.endswith(".csv"):
@@ -405,25 +402,25 @@ class prediction_data_validation:
                             count += 1
                             if file not in os.listdir(Bad_data_path):
                                 shutil.move(file_path, Bad_data_path)
-                                #f = open("prediction_logs/missingvaluesincolumn.txt", 'a+')
-                                self.logger.insert_records_into_collection("wafer","missingvaluesincolumn","Invalid files moved from good data to bad data %s" %file)
-                                #f.close()
+                                f = open("prediction_logs/missingvaluesincolumn.txt", 'a+')
+                                self.logger.log(f,"Invalid files moved from good data to bad data %s" %file)
+                                f.close()
                             else:
                                 pass
                     if count == 0:
                         df.rename(columns={"Unnamed: 0": "Wafer"}, inplace=True)
                         df.to_csv(file_path, index=None, header=True)
-                    #f = open("prediction_logs/missingvaluesincolumn.txt", 'a+')
-                    self.logger.insert_records_into_collection("wafer","missingvaluesincolumn", "Unnamed column name changed successfully")
-                    #f.close()
+                    f = open("prediction_logs/missingvaluesincolumn.txt", 'a+')
+                    self.logger.log(f, "Unnamed column name changed successfully")
+                    f.close()
 
         except OSError:
-            #f = open("prediction_logs/missingvaluesincolumn.txt", 'a+')
-            self.logger.insert_records_into_collection("wafer","missingvaluesincolumn", "Error occurred while validating the column length. %s" %OSError)
+            f = open("prediction_logs/missingvaluesincolumn.txt", 'a+')
+            self.logger.log(f, "Error occurred while validating the column length. %s" %OSError)
             raise OSError
         except Exception as e:
-            self.logger.insert_records_into_collection("wafer","missingvaluesincolumn", "Exception occurred while validating the column length. %s" % OSError)
-            #f.close()
+            self.logger.log(f, "Exception occurred while validating the column length. %s" % OSError)
+            f.close()
             raise e
 
 

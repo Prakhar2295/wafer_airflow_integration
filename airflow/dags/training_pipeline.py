@@ -12,7 +12,7 @@ from data_ingestion.data_from_s3_bucket import data_loader_from_s3
 #from Training_raw_data_validation.rawvalidation import Raw_Data_Validation
 from training_Validation_insertion import train_validation
 from trainingModel import trainmodel
-from Model_evaluation import 
+from Model_evaluation import evaluate_model
 # The DAG object; we'll need this to instantiate a DAG
 from airflow.models.dag import DAG
 
@@ -23,6 +23,7 @@ from airflow.operators.python import PythonOperator
 #raw_data = Raw_Data_Validation(path)
 raw_validation = train_validation(path)
 train = trainmodel()
+model_eval = evaluate_model()
 # [END import_module]
 
 # [START instantiate_dag]
@@ -64,40 +65,37 @@ with DAG(
 
     def model_evaluation(**kwargs):
         ti = kwargs["ti"]
-        extract_file_name_schema = ti.xcom_pull(task_ids = 'values_from_schema',key = 'file_name_schema')
-        LengthOfDateStampInFile,LengthOfTimeStampInFile,column_names,NumberofColumns = extract_file_name_schema
-
-        extract_regex_schema = ti.xcom_pull(task_ids = 'regex_creation',key = 'regex_schema')
-        regex = extract_regex_schema
-
-        raw_data.raw_file_name_validation(regex,LengthOfDateStampInFile)
+        eval_model = evaluate_model.calculate_metrics_score()
+        
 
 
 
-    values_from_schema_task = PythonOperator(
-            task_id="values_from_schema",
-            python_callable=values_from_schema,
+    data_ingestion_task = PythonOperator(
+            task_id="data_ingestion",
+            python_callable=data_ingestion,
+        )
+
+
+    data_validation_task = PythonOperator(
+            task_id="data_validation",
+            python_callable=data_validation,
+        )
+
+    model_training_task = PythonOperator(
+            task_id="model_training",
+            python_callable=model_training,
+        )
+    
+    model_evaluation_task = PythonOperator(
+            task_id="model_evaluation",
+            python_callable=model_evaluation,
         )
 
 
 
 
-    regex_creation_task = PythonOperator(
-            task_id="regex_creation",
-            python_callable=regex_creation,
-        )
 
-    file_name_validation_task = PythonOperator(
-            task_id="file_name_validation",
-            python_callable=file_name_validation,
-        )
-
-
-
-
-
-
-    values_from_schema_task >> regex_creation_task >> file_name_validation_task
+    data_ingestion_task >> data_validation_task >> model_training_task >> model_evaluation_task
 
 
         

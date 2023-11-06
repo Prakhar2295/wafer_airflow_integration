@@ -103,9 +103,9 @@ class trainmodel:
 
 
 
-#p = trainmodel()
-#p.trainingmodel()
-#print("don#e")
+p = trainmodel()
+p.trainingmodel()
+print("done")
 
 
 

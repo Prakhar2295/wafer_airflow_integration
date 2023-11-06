@@ -7,11 +7,12 @@ from data_ingestion.data_loader_prediction import data_getter_prediction
 from data_ingestion.data_loader import Data_Getter
 from file_operations.file_methods import File_operation
 from prediction_raw_data_validation.prediction_raw_data_validation import prediction_data_validation
+#from prediction_raw_data_validation.prediction_raw_data_validation import prediction_data_validation
 from sklearn.metrics import precision_score,recall_score,roc_auc_score,accuracy_score,f1_score
 
 class evaluate_model:
 	"""
-	     This class will be used to evaluate the models perfrormance
+	     This class will be used to evaluate the models performance
 	     based on the certain metrics.
 
 	    Written By: JSL
@@ -108,8 +109,8 @@ class evaluate_model:
 
 		"""
 		try:
-			#self.data = "Training_Data_prediction/Cluster_data.csv"
-			self.data = self.model_prediction()
+			self.data = "Training_Data_prediction/Cluster_data.csv"
+			#self.data = self.model_prediction()
    
 			result = "Training_Data_prediction/Modelprediction.csv"
 			self.df = pd.read_csv(self.data)
@@ -136,10 +137,10 @@ class evaluate_model:
 
 
 
-#a = evaluate_model()
-#a.model_prediction()
-#a.calculate_metrics_score()
-#print("done")
+a = evaluate_model()
+a.model_prediction()
+a.calculate_metrics_score()
+print("done")
 
 
 

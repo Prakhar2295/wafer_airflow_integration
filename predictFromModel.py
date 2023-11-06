@@ -20,10 +20,10 @@ class prediction:
 
 	"""
 
-	def __init__(self,path):
+	def __init__(self):
 		self.file_path = "prediction_logs/File_prediction_logs.txt"
 		self.logger_object = App_Logger()
-		self.path = path
+		self.path = "Prediction_Output_File/Predictions.csv"
 
 	def predictionfrommodel(self):
 
@@ -82,9 +82,9 @@ class prediction:
 
 
 
-#p = prediction()
-#p.predictionfrommodel()
-#print("done")
+p = prediction()
+p.predictionfrommodel()
+print("done")
 
 
 

@@ -37,10 +37,10 @@ class File_operation:
 
         
         """
-       self.file_path = "Training_Logs/ModelLoader.txt"
-       self.file_object = open(self.file_path,'a+')
-       self.logger_object.log(self.file_object,"Entered the save model method inside the file_operation class")
-       self.file_object.close()
+       #self.file_path = "Training_Logs/ModelLoader.txt"
+       #self.file_object = open(self.file_path,'a+')
+       #self.logger_object.log(self.file_object,"Entered the save model method inside the file_operation class")
+       #self.file_object.close()
 
        try:
            path = self.model_directory + "/" + filename
@@ -50,15 +50,15 @@ class File_operation:
                pass
            with open(path +'/' + filename + '.sav','wb') as f:
                    pickle.dump(model,f)
-           self.file_object = open(self.file_path, 'a+')
-           self.logger_object.log(self.file_object,'Model File' +filename +'saved.Exited the saved_model method of the file operation class')
-           self.file_object.close()
+           #self.file_object = open(self.file_path, 'a+')
+           #self.logger_object.log(self.file_object,'Model File' +filename +'saved.Exited the saved_model method of the file operation class')
+           #self.file_object.close()
            return "success"
        except Exception as e:
-           self.file_object = open(self.file_path, 'a+')
-           self.logger_object.log(self.file_object,"Exiting the saved_model method of the file operation class")
-           self.logger_object.log(self.file_object,"Exception occurred while saving the model.Exception message:: %s"%e)
-           self.file_object.close()
+           #self.file_object = open(self.file_path, 'a+')
+           #self.logger_object.log(self.file_object,"Exiting the saved_model method of the file operation class")
+           #self.logger_object.log(self.file_object,"Exception occurred while saving the model.Exception message:: %s"%e)
+           #self.file_object.close()
            raise Exception()
        
     def load_model(self,filename):

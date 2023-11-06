@@ -64,7 +64,7 @@ class train_validation:
         except Exception as e:
             raise e
         
-path = 'D:/FSDS/MAchine_Learning/wafer_sensor_fault/Training_Batch_Files'
+path = 'Training_Batch_Files'
 f = train_validation(path)
 f.train_validation()
 print("done")

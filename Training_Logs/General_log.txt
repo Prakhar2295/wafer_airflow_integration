@@ -1,0 +1,3 @@
+2023-11-06/02:01:41		Good Raw directory has been deleted successfully!!!
+2023-11-06/02:01:41		Bad Raw Data moved to Training Raw data Archive directory
+2023-11-06/02:01:41		Bad Raw data directory has been deleted Successfully

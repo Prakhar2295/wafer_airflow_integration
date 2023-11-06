@@ -1,4 +1,11 @@
 setup.py
+file_operations/__init__.py
+file_operations/file_methods.py
+file_operations/model_production.py
+prediction_data_transformation/Datatransformationprediction.py
+prediction_data_transformation/__init__.py
+prediction_raw_data_validation/__init__.py
+prediction_raw_data_validation/prediction_raw_data_validation.py
 sensor.egg-info/PKG-INFO
 sensor.egg-info/SOURCES.txt
 sensor.egg-info/dependency_links.txt
