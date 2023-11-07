@@ -10,20 +10,20 @@ import pendulum
 
 from data_ingestion.data_from_s3_bucket import data_loader_from_s3
 #from Training_raw_data_validation.rawvalidation import Raw_Data_Validation
-from training_Validation_insertion import train_validation
-from trainingModel import trainmodel
-from Model_evaluation import evaluate_model
+#from training_Validation_insertion import train_validation
+
+
 # The DAG object; we'll need this to instantiate a DAG
 from airflow.models.dag import DAG
 
 # Operators; we need this to operate!
-path = "raw_data_from_s3"
+#path = "raw_data_from_s3"
 
 from airflow.operators.python import PythonOperator
 #raw_data = Raw_Data_Validation(path)
-raw_validation = train_validation(path)
-train = trainmodel()
-model_eval = evaluate_model()
+
+
+
 # [END import_module]
 
 # [START instantiate_dag]
@@ -49,26 +49,36 @@ with DAG(
     def data_ingestion(**kwargs):
         ti = kwargs["ti"]
         get_data = data_loader_from_s3()
-        raw_data = get_data.download_files()
-        ti.xcom_push('data_ingestion',raw_data)
+        raw_data_path = get_data.download_files()
+        ti.xcom_push('raw_data',raw_data_path)
         
         
     def data_validation(**kwargs):
         ti = kwargs["ti"]
+        from training_Validation_insertion import train_validation
+        raw_data_path = ti.xcom_pull(task_ids = 'data_ingestion',key = 'raw_data')
+        raw_validation = train_validation(raw_data_path)
         valid_data = raw_validation.train_validation()
         ti.xcom_push('valid_data',valid_data)
 
     def model_training(**kwargs):
         ti = kwargs["ti"]
+        from trainingModel import trainmodel
+        train = trainmodel()
         model_trained = train.trainingmodel()
         ti.xcom_push('trained_model',model_trained)
+        
 
     def model_evaluation(**kwargs):
         ti = kwargs["ti"]
+        from Model_evaluation import evaluate_model
+        model_eval = evaluate_model()
+        model_eval.model_prediction()
         eval_model = evaluate_model.calculate_metrics_score()
+        ti.xcom_push("evaluate_model",eval_model)
         
 
-
+        
 
     data_ingestion_task = PythonOperator(
             task_id="data_ingestion",

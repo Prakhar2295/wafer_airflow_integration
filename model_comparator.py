@@ -267,11 +267,15 @@ class evaluate_model:
 				a_test_key.append(i)
 				b_test_val.append(j)
 			if len(a_prod_key) == len(a_test_key):
-				for i in a_prod_key:
-					if i in a_test_key:
-						if self.prod_metrics[i] < self.test_metrics[i]:
+				for i in range(len(a_prod_key)):
+
+					if a_prod_key[i][5:] in a_test_key[i][5:]:
+						if self.prod_metrics[a_prod_key][i] < self.test_metrics[a_test_key]:
+							print('all ok')
 							pass
+
 						elif self.prod_metrics[i] > self.test_metrics[i]:
+							print('all ok1')
 							pass
 					elif i not in a_test_key:
 						key_invalid.append(i)
@@ -308,7 +312,10 @@ a = evaluate_model()
 a.model_prediction()
 a.calculate_metrics_score_for_production()
 a.calculate_metrics_score_for_test()
+#a.compare_models_performance()
 print("done")
 print(a.prod_metrics)
 print(a.test_metrics)
+#print(a.key_invalid)
+
 

@@ -1,4 +1,0 @@
-2023-11-06/02:36:00		Entered inside the data_loader method inside the data_getter_prediction
-2023-11-06/02:36:00		Loaded the prediction dataframe succesfully
-2023-11-06/02:38:39		Entered inside the data_loader method inside the data_getter_prediction
-2023-11-06/02:38:39		Loaded the prediction dataframe succesfully

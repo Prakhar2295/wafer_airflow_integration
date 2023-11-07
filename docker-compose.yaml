@@ -1,0 +1,38 @@
+version: '3.5'
+services: 
+  airflow:
+    container_name: airflow
+    image: airflow:latest
+    environment:
+      MYSQL_HOST: "mysqldb"
+      MYSQL_ROOT_PASSWORD: "123456"
+      MYSQL_USER: "prakhar"
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    volumes:
+      - $(PATH)/airflow/dags:/app/airflow
+    ports:
+      - "8080:8080"
+    networks:
+      - backend
+    depends_on:
+      - mysqldb
+  mysqldb:
+    image: mysql:5.7
+    environment:
+      MYSQL_DATABASE: "db"
+      MYSQL_ROOT_PASSWORD: "123456"
+      MYSQL_USER: "prakhar"
+    container_name: mysqldb
+    ports:
+      - 3306:3306
+    networks:
+      - backend
+networks:
+  backend:
+    driver: "bridge"
+  
+
+  
+      

@@ -60,6 +60,9 @@ class train_validation:
             self.dboperation.selectingDatafromtableintocsv("training")
             self.log_writer.log(self.file_object, "Export data from database table to csv file completed successfully!!")
             self.file_object.close()
+            #return df
+            
+        
 
         except Exception as e:
             raise e

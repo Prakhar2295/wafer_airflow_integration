@@ -1,2 +1,0 @@
-2023-11-06/02:00:16		LengthOfDateStampInFile:: 8	LengthOfTimeStampInFile:: 6	NumberofColumns:: 592	Filename:: wafer_08012020_120000.csv
-

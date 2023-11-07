@@ -1,0 +1,15 @@
+artifact_uri: file:///D:/FSDS/MAchine_Learning/wafer_sensor_fault_mlflow_aws/wafer_sensor_fault/mlruns/2/ea68d5a37ec4411380f26529634ef082/artifacts
+end_time: null
+entry_point_name: ''
+experiment_id: '2'
+lifecycle_stage: active
+run_id: ea68d5a37ec4411380f26529634ef082
+run_name: resilient-donkey-712
+run_uuid: ea68d5a37ec4411380f26529634ef082
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1699262294088
+status: 1
+tags: []
+user_id: unknown

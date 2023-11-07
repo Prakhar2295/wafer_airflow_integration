@@ -52,6 +52,7 @@ class KMeansClustering:
             plt.savefig("preprocessing_data/K-Means_Elbow.PNG")   ### saving the elobow plot locally
 
             self.kn = KneeLocator(range(1,11),wcss,curve = 'convex', direction = 'decreasing')
+
             #self.logger_object.log(self.file_object,'The optimum no. of clusters is :' +str(self.kn.knee)+ '.Exited the elbow method inside the kmeans clustering class')
             return self.kn.knee
         except Exception as e:

@@ -1,4 +1,3 @@
-import boto3
 import os
 
 
@@ -17,36 +16,40 @@ class data_loader_from_s3:
     """
     
     def __init__(self,bucket_name):
-        self.bucket_name = bucket_name
-        self.local_folder = 'raw_data_from_s3'
-        self.s3_client = boto3.client('s3')
+        self.bucket_name='waferbucket'
+        self.local_folder = 'D:/FSDS/MAchine_Learning/wafer_airflow/wafer_sensor_fault/raw_data_from_s3'
+        #self.s3_client = boto3.client('s3')
+        #self.file_names = []
         
     def get_file_names(self):
-        self.file_names = []
-        
-        #self.s3_client = boto3.client('s3')
-        
-        objects = self.s3_client.list_objects_v2(Bucket = self.bucket_name)
-        
-        for obj in objects['Contents']:
-            self.file_names.append(obj['key'])
-            
-        return self.file_names
+        command = f'aws s3 ls s3://{self.bucket_name}'
+        os.system(command)
+
     
     def download_files(self):
         
-        self.file_names = self.get_file_names()
+        if os.path.exists(self.local_folder):
+            for file in os.listdir(self.local_folder):
+                os.remove(file)
         
-        for file in self.file_names:
-            if not os.path.isdir(self.local_folder):
-                os.makedirs(self.local_folder)
-            
-            file_path = os.path.join(self.local_folder,file)
-            self.s3_client.download_file(self.bucket_name,file,str(file_path))
+        self.command = f'aws s3 cp s3://{self.bucket_name} {self.local_folder} --recursive'
+        os.system(self.command)
+        return self.local_folder
+        
+        
+
+
+
+
+
                 
                 
         
-        
+a =data_loader_from_s3('waferbucket')
+#l = a.get_file_names()
+a.download_files()
+
+
         
             
         

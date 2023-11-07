@@ -1,0 +1,15 @@
+artifact_uri: file:///D:/FSDS/MAchine_Learning/wafer_sensor_fault_mlflow_aws/wafer_sensor_fault/mlruns/0/43c53ba48fe6495299502bb05149af57/artifacts
+end_time: 1699262325690
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 43c53ba48fe6495299502bb05149af57
+run_name: useful-quail-926
+run_uuid: 43c53ba48fe6495299502bb05149af57
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1699262324688
+status: 4
+tags: []
+user_id: prath

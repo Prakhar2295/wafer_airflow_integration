@@ -63,6 +63,7 @@ class trainmodel:
 
             kmeans = clustering.KMeansClustering(self.log_writer,self.file_object)
             number_of_clusters = kmeans.elbow_plot(X)    ####Plotting the elbow plot using method inside the Kmeansclustering class
+            print(number_of_clusters)
 
             X = kmeans.create_clusters(X,number_of_clusters)    ###To divide the data into clusters
 
@@ -93,6 +94,8 @@ class trainmodel:
                 ###saving the best model to the directory
                 file_op =file_methods.File_operation(self.file_object,self.log_writer)
                 save_model = file_op.save_model(best_model,best_model_name + str(i))
+                #print('model_saved:'+best_model_name)
+            return save_model
 
             #self.log_writer.log(self.file_object,"Training Ended Successfully!!")
             #self.file_object.close()

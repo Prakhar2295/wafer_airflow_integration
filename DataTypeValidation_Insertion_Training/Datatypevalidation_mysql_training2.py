@@ -40,7 +40,10 @@ class dboperation:
 			file = open(log_file_path, 'a+')
 			self.logger.log(file, "Entered inside databaseconnection method inside dboperation class")
 			file.close()
-			conn = connection.connect(host="localhost", user="prakhar", passwd="123456", use_pure=True)
+			self.host = os.getenv('MYSQL_HOST')
+			self.user = os.getenv('MYSQL_USER')
+			self.password = os.getenv('MYSQL_ROOT_PASSWORD')
+			conn = connection.connect(host=self.host, user=self.user, passwd=self.password, use_pure=True)
 			cur = conn.cursor()
 			query = "show databases"
 			cur.execute(query)
@@ -58,7 +61,7 @@ class dboperation:
 				file.close()
 			else:
 				file = open(log_file_path, 'a+')
-				conn = connection.connect(host="localhost",database = databasename,user="prakhar", passwd="123456",use_pure=True)
+				conn = connection.connect(host=self.host,database = databasename,user=self.user, passwd=self.password,use_pure=True)
 				self.logger.log(file, "Database already existed:: %s" %databasename)
 				file.close()
 			return conn	
@@ -205,7 +208,7 @@ class dboperation:
 		path = "D:/FSDS/MAchine_Learning/wafer_sensor_fault/TrainingFileFromDB"
 		file_path = "D:/FSDS/MAchine_Learning/wafer_sensor_fault/TrainingFileFromDB" + "/" + "InputFile.csv"
 		try:
-			conn = connection.connect(host="localhost", user="prakhar", database=database, passwd="123456",use_pure=True)
+			conn = connection.connect(host=self.host, user=self.user, database=database, passwd=self.password,use_pure=True)
 			cur = conn.cursor()
 			if not os.path.isdir(path):
 				os.makedirs(path)
@@ -223,6 +226,7 @@ class dboperation:
 			log_file = open(log_file_path, 'a+')
 			self.logger.log(log_file, "Database connection closed succesfully::{database}".format(database = database))
 			log_file.close()
+			#return df
 		except OSError as e:
 			log_file = open(log_file_path, 'a+')
 			self.logger.log(log_file,"Input file csv creation unsuccessfull.Error occurred while creating csv file from mysql table %s " % e)

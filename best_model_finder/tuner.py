@@ -41,7 +41,7 @@ class Model_finder:
         try:
             ####initiaizing the different combination of parameters
             self.param_grid= {"n_estimators":[10], "criterion":["gini","entropy"],
-                              "max_depth": range(2),"max_features": ['auto']}
+                              "max_depth": range(2,4,6),"max_features": ['auto']}
 
             ####Creating an object for the grid search cv class
             self.grid = GridSearchCV(estimator = self.clf,param_grid = self.param_grid, cv = 2,verbose = 3)
@@ -89,12 +89,10 @@ class Model_finder:
         #self.logger_object.log(self.file_object,"Entered inside the get_best_params_for_xgboost method inside the model_finder class")
         try:
             #self.xgb = XGBClassifier(objective = "binary:logistic")
-            self.param_grid_xgboost = {"learning_rate": [0.5,0.1],
-                                                     "max_depth": [10,20],
-                                                     'n_estimators': [10,50]}
+            self.param_grid_xgboost = {"learning_rate": [0.5,0.1],"max_depth": [10,20],'n_estimators': [10,50]}
             
             ##Creating m
-            self.grid = GridSearchCV(estimator = self.xgb,param_grid = self.param_grid_xgboost,cv = 3,verbose = 3)
+            self.grid = GridSearchCV(estimator = self.xgb,param_grid = self.param_grid_xgboost,cv = 5,verbose = 3)
             self.grid.fit(train_x,train_y)
 
             self.learning_rate = self.grid.best_params_["learning_rate"]
