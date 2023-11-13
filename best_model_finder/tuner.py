@@ -2,6 +2,8 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import GridSearchCV
 from xgboost import XGBClassifier
 from sklearn.metrics import roc_auc_score, accuracy_score
+import warnings
+warnings.filterwarnings('ignore')
 
 class Model_finder:
     
@@ -40,22 +42,22 @@ class Model_finder:
         #self.logger_object.log(self.file_object,"Entered inside the get_best_param_for_random_forest method inside the model_finder class")
         try:
             ####initiaizing the different combination of parameters
-            self.param_grid= {"n_estimators":[10], "criterion":["gini","entropy"],
-                              "max_depth": range(2,4,6),"max_features": ['auto']}
+            #self.param_grid= {"n_estimators":[10,50,100,150], "criterion":["gini","entropy"],
+                              #"max_depth": range(2,4,6),"max_features": ['sqrt']}
 
             ####Creating an object for the grid search cv class
-            self.grid = GridSearchCV(estimator = self.clf,param_grid = self.param_grid, cv = 2,verbose = 3)
+            #self.grid = GridSearchCV(estimator = self.clf,param_grid = self.param_grid, cv = 5,verbose = 3)
             ###find the best parameters
-            self.grid.fit(train_x,train_y)
+            #self.grid.fit(train_x,train_y)
 
             ##Extrating the best parameters
-            self.criterion = self.grid.best_params_['criterion']
-            self.max_depth = self.grid.best_params_['max_depth']
-            self.max_features = self.grid.best_params_["max_features"]
-            self.n_estimators =  self.grid.best_params_['n_estimators']
+            #self.criterion = self.grid.best_params_['criterion']
+            #self.max_depth = self.grid.best_params_['max_depth']
+            #self.max_features = self.grid.best_params_["max_features"]
+            #self.n_estimators =  self.grid.best_params_['n_estimators']
 
-            self.clf = RandomForestClassifier(n_estimators=self.n_estimators,criterion=self.criterion,
-                                              max_depth = self.max_depth,max_features=self.max_features)
+            self.clf = RandomForestClassifier(n_estimators=10,criterion="gini",
+                                              max_depth = 10,max_features="sqrt")
             
 
             self.clf.fit(train_x,train_y)
@@ -88,18 +90,18 @@ class Model_finder:
 
         #self.logger_object.log(self.file_object,"Entered inside the get_best_params_for_xgboost method inside the model_finder class")
         try:
-            #self.xgb = XGBClassifier(objective = "binary:logistic")
-            self.param_grid_xgboost = {"learning_rate": [0.5,0.1],"max_depth": [10,20],'n_estimators': [10,50]}
+            self.xgb = XGBClassifier(objective = "binary:logistic")
+            #self.param_grid_xgboost = {"learning_rate": [0.5,0.1,0.2,0.01],"max_depth": [10,20,5,3],'n_estimators': [10,50,100]}
             
             ##Creating m
-            self.grid = GridSearchCV(estimator = self.xgb,param_grid = self.param_grid_xgboost,cv = 5,verbose = 3)
-            self.grid.fit(train_x,train_y)
+            #self.grid = GridSearchCV(estimator = self.xgb,param_grid = self.param_grid_xgboost,cv = 5,verbose = 3)
+            #self.grid.fit(train_x,train_y)
 
-            self.learning_rate = self.grid.best_params_["learning_rate"]
-            self.max_depth = self.grid.best_params_["max_depth"]
-            self.n_estimators = self.grid.best_params_["n_estimators"]
+            #self.learning_rate = self.grid.best_params_["learning_rate"]
+            #self.max_depth = self.grid.best_params_["max_depth"]
+            #self.n_estimators = self.grid.best_params_["n_estimators"]
 
-            self.xgb = XGBClassifier(learning_rate=self.learning_rate,max_depth = self.max_depth,n_estimators=self.n_estimators )
+            self.xgb = XGBClassifier(learning_rate=0.01,max_depth = 10,n_estimators=50 )
 
             self.xgb.fit(train_x,train_y)
 

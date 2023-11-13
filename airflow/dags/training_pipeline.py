@@ -8,7 +8,7 @@ import textwrap
 
 import pendulum
 
-from data_ingestion.data_from_s3_bucket import data_loader_from_s3
+#from data_ingestion.data_from_s3_bucket import data_loader_from_s3
 #from Training_raw_data_validation.rawvalidation import Raw_Data_Validation
 #from training_Validation_insertion import train_validation
 
@@ -48,7 +48,8 @@ with DAG(
     
     def data_ingestion(**kwargs):
         ti = kwargs["ti"]
-        get_data = data_loader_from_s3()
+        from data_ingestion.data_from_s3_bucket import data_loader_from_s3
+        get_data = data_loader_from_s3('waferbucket')
         raw_data_path = get_data.download_files()
         ti.xcom_push('raw_data',raw_data_path)
         
@@ -74,7 +75,7 @@ with DAG(
         from Model_evaluation import evaluate_model
         model_eval = evaluate_model()
         model_eval.model_prediction()
-        eval_model = evaluate_model.calculate_metrics_score()
+        eval_model = model_eval.calculate_metrics_score()
         ti.xcom_push("evaluate_model",eval_model)
         
 

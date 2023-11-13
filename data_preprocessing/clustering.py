@@ -43,6 +43,7 @@ class KMeansClustering:
         try:
             for i in range(1,11):
                 kmeans = KMeans(n_clusters = i,init = 'k-means++',random_state = 42) ###initialize the Kmeans object
+                print(data.shape)
                 kmeans.fit(data)  ###fitting the data to the Kmeans algorithm
                 wcss.append(kmeans.inertia_)
             plt.plot(range(1,11),wcss)  ###Plotting the graph between WCSS and no. of clusters

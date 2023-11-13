@@ -36,10 +36,10 @@ class dboperation:
 
 		"""
 		try:
-			log_file_path = 'D:/FSDS/MAchine_Learning/wafer_sensor_fault/Training_Logs/dbconnection.txt'
-			file = open(log_file_path, 'a+')
-			self.logger.log(file, "Entered inside databaseconnection method inside dboperation class")
-			file.close()
+			#log_file_path = 'D:/FSDS/MAchine_Learning/wafer_sensor_fault/Training_Logs/dbconnection.txt'
+			#file = open(log_file_path, 'a+')
+			#self.logger.log(file, "Entered inside databaseconnection method inside dboperation class")
+			#file.close()
 			self.host = 'database-1.cva4d6dzsj7b.us-west-2.rds.amazonaws.com'
 			self.password = '123456789'
 			self.user = 'admin'
@@ -59,24 +59,24 @@ class dboperation:
 				query = "create database %s" %databasename
 				cur.execute(query)
 				conn.close()
-				file = open(log_file_path, 'a+')
-				self.logger.log(file, "Database created,query executed successfully:: %s"%databasename)
-				file.close()
+				#file = open(log_file_path, 'a+')
+				#self.logger.log(file, "Database created,query executed successfully:: %s"%databasename)
+				#file.close()
 			else:
-				file = open(log_file_path, 'a+')
+				#file = open(log_file_path, 'a+')
 				conn = connection.connect(host=self.host,database = databasename,user=self.user, passwd=self.password,use_pure=True)
-				self.logger.log(file, "Database already existed:: %s" %databasename)
-				file.close()
+				#self.logger.log(file, "Database already existed:: %s" %databasename)
+				#file.close()
 			return conn	
 		except ConnectionError:
-			file = open(log_file_path ,'a+')
-			self.logger.log(file, "Connection Error occurred while creating database")
+			#file = open(log_file_path ,'a+')
+			#self.logger.log(file, "Connection Error occurred while creating database")
 			#conn.close()
 			raise ConnectionError
 		except Exception as e:
-			file = open(log_file_path, 'a+')
-			self.logger.log(file, "Exception occurred while creating database.Exception message::%s" %e)
-			file.close()
+			#file = open(log_file_path, 'a+')
+			#self.logger.log(file, "Exception occurred while creating database.Exception message::%s" %e)
+			#file.close()
 			#conn.close()
 			raise e
 
@@ -93,47 +93,47 @@ class dboperation:
 			 Revisions: None
 
 		"""
-		log_file_path = 'D:/FSDS/MAchine_Learning/wafer_sensor_fault/Training_Logs/createtabledb.txt'
-		log_file = open(log_file_path, 'a+')
-		self.logger.log(log_file, "Entered Inside the Create table db method inside the db operations class ")
+		#log_file_path = 'D:/FSDS/MAchine_Learning/wafer_sensor_fault/Training_Logs/createtabledb.txt'
+		#log_file = open(log_file_path, 'a+')
+		#self.logger.log(log_file, "Entered Inside the Create table db method inside the db operations class ")
 		conn = self.databaseconnection(database)
 		# conn = connection.connect(host="localhost", user="prakhar",database="nanotube",passwd="123456",use_pure=True)
 		cur = conn.cursor()
 		query = "DROP TABLE IF EXISTS Good_Raw_Data"
 		cur.execute(query)
-		self.logger.log(log_file, "Deleted the Existing table Good_RAW_Data")
-		log_file.close()
+		#self.logger.log(log_file, "Deleted the Existing table Good_RAW_Data")
+		#log_file.close()
 		try:
 			for col, type in columnnames.items():
 				if col == "Wafer":
 					# print(i,j+str(255))
 					query = "create table Good_Raw_Data (`{data}` {data1}) ".format(data=(col),data1=("varchar(255)"))
 					cur.execute(query)
-					log_file = open(log_file_path, 'a+')
-					self.logger.log(log_file, "Created the table inside the database.Query executed successfully!!")
-					log_file.close()
+					#log_file = open(log_file_path, 'a+')
+					#self.logger.log(log_file, "Created the table inside the database.Query executed successfully!!")
+					#log_file.close()
 				# print(query)
 				else:
 					# print(i,j)
 					query = "ALTER TABLE Good_Raw_Data ADD COLUMN `{data}` {data1} ".format(data=(col),data1=(type))
 					print(query)
 					cur.execute(query)
-					log_file = open(log_file_path, 'a+')
-					self.logger.log(log_file, "Altered the table in the database.%s" % database)
-					log_file.close()
-			log_file = open(log_file_path, 'a+')
-			self.logger.log(log_file, "Table created successfully completed inside the database!!%s" % database)
-			log_file.close()
+					#log_file = open(log_file_path, 'a+')
+					#self.logger.log(log_file, "Altered the table in the database.%s" % database)
+					#log_file.close()
+			#log_file = open(log_file_path, 'a+')
+			#self.logger.log(log_file, "Table created successfully completed inside the database!!%s" % database)
+			#log_file.close()
 		except OSError:
-			log_file_path = 'D:/FSDS/MAchine_Learning/wafer_sensor_fault/Training_Logs/createtabledb.txt'
-			log_file = open(log_file_path, 'a+')
-			self.logger.log(log_file, "Table Creation Unsuccessfull!!.Error occurred %s" % OSError)
+			#log_file_path = 'D:/FSDS/MAchine_Learning/wafer_sensor_fault/Training_Logs/createtabledb.txt'
+			#log_file = open(log_file_path, 'a+')
+			#self.logger.log(log_file, "Table Creation Unsuccessfull!!.Error occurred %s" % OSError)
 			# conn.close()
 			raise OSError
 		except Exception as e:
-			log_file = open(log_file_path, 'a+')
-			self.logger.log(log_file, "Exception occurred while creating table %s" % e)
-			log_file.close()
+			#log_file = open(log_file_path, 'a+')
+			#self.logger.log(log_file, "Exception occurred while creating table %s" % e)
+			#log_file.close()
 			# conn.close()
 			raise e
 
@@ -152,10 +152,10 @@ class dboperation:
 
 		"""
 		try:
-			log_file_path = 'D:/FSDS/MAchine_Learning/wafer_sensor_fault/Training_Logs/TableDatainsertion.txt'
-			log_file = open(log_file_path, 'a+')
-			self.logger.log(log_file,"Entered inside the insertintoTableGooddata method inside the db operation class")
-			log_file.close()
+			#log_file_path = 'D:/FSDS/MAchine_Learning/wafer_sensor_fault/Training_Logs/TableDatainsertion.txt'
+			#log_file = open(log_file_path, 'a+')
+			#self.logger.log(log_file,"Entered inside the insertintoTableGooddata method inside the db operation class")
+			#log_file.close()
 			conn = self.databaseconnection(database)
 			cur = conn.cursor()
 			##path = "C:/Users/prath/Desktop/PYTHON/Training_Raw_files_validated/Bad_Raw"
@@ -170,20 +170,20 @@ class dboperation:
 						p = ','.join(lines)
 						cur.execute("INSERT INTO Good_Raw_Data values ({data})".format(data=(p)))
 			conn.commit()
-			log_file = open(log_file_path, 'a+')
-			self.logger.log(log_file , "Inserted data into the table successfully!!")
-			log_file.close()
+			#log_file = open(log_file_path, 'a+')
+			#self.logger.log(log_file , "Inserted data into the table successfully!!")
+			#log_file.close()
 			#conn.close()
 		except ConnectionError as e:
-			log_file = open(log_file_path, 'a+')
-			self.logger.log(log_file, "Error Occurred.Insertion of data inside table unsuccesfull!!.%s" % e)
-			log_file.close()
+			#log_file = open(log_file_path, 'a+')
+			#self.logger.log(log_file, "Error Occurred.Insertion of data inside table unsuccesfull!!.%s" % e)
+			#log_file.close()
 			#conn.close()
 			raise e
 		except Exception as e:
-			log_file = open(log_file_path, 'a+')
-			self.logger.log(log_file, "Exception Occurred.Insertion of data inside table unsuccesfull!!.Exception message::%s" % e)
-			log_file.close()
+			#log_file = open(log_file_path, 'a+')
+			#self.logger.log(log_file, "Exception Occurred.Insertion of data inside table unsuccesfull!!.Exception message::%s" % e)
+			#log_file.close()
 			#conn.close()
 			raise e
 
@@ -204,41 +204,41 @@ class dboperation:
 
 
 		"""
-		log_file_path = "D:/FSDS/MAchine_Learning/wafer_sensor_fault/Training_Logs/DataFromTabletoCSV.txt"
-		log_file = open(log_file_path, 'a+')
-		self.logger.log(log_file, "Entered the selectingDatafromtableintocsv inside db operation class ")
-		log_file.close()
-		path = "D:/FSDS/MAchine_Learning/wafer_sensor_fault/TrainingFileFromDB"
-		file_path = "D:/FSDS/MAchine_Learning/wafer_sensor_fault/TrainingFileFromDB" + "/" + "InputFile.csv"
+		#log_file_path = "D:/FSDS/MAchine_Learning/wafer_sensor_fault/Training_Logs/DataFromTabletoCSV.txt"
+		#og_file = open(log_file_path, 'a+')
+		#self.logger.log(log_file, "Entered the selectingDatafromtableintocsv inside db operation class ")
+		#log_file.close()
+		path = "TrainingFileFromDB"
+		file_path = "TrainingFileFromDB" + "/" + "InputFile.csv"
 		try:
 			conn = connection.connect(host=self.host, user=self.user, database=database, passwd=self.password,use_pure=True)
 			cur = conn.cursor()
 			if not os.path.isdir(path):
 				os.makedirs(path)
-				log_file = open(log_file_path, 'a+')
-				self.logger.log(log_file, "Directory Created Succesfully !! %s " % path)
-				log_file.close()
+				#log_file = open(log_file_path, 'a+')
+				#self.logger.log(log_file, "Directory Created Succesfully !! %s " % path)
+				#log_file.close()
 
 			df = pd.read_sql("select * from Good_Raw_Data", conn)
 			df.to_csv(file_path)
-			log_file = open(log_file_path, 'a+')
-			self.logger.log(log_file, "Input File csv created successfully from table%s" % file_path)
-			log_file.close()
+			#log_file = open(log_file_path, 'a+')
+			#self.logger.log(log_file, "Input File csv created successfully from table%s" % file_path)
+			#log_file.close()
 			conn.close()
-			log_file_path = 'D:/FSDS/MAchine_Learning/wafer_sensor_fault/Training_Logs/dbconnection.txt'
-			log_file = open(log_file_path, 'a+')
-			self.logger.log(log_file, "Database connection closed succesfully::{database}".format(database = database))
-			log_file.close()
+			#log_file_path = 'D:/FSDS/MAchine_Learning/wafer_sensor_fault/Training_Logs/dbconnection.txt'
+			#log_file = open(log_file_path, 'a+')
+			#self.logger.log(log_file, "Database connection closed succesfully::{database}".format(database = database))
+			#log_file.close()
 			#return df
 		except OSError as e:
-			log_file = open(log_file_path, 'a+')
-			self.logger.log(log_file,"Input file csv creation unsuccessfull.Error occurred while creating csv file from mysql table %s " % e)
-			log_file.close()
+			#log_file = open(log_file_path, 'a+')
+			#self.logger.log(log_file,"Input file csv creation unsuccessfull.Error occurred while creating csv file from mysql table %s " % e)
+			#log_file.close()
 			raise e
 		except Exception as e:
-			log_file = open(log_file_path, 'a+')
-			self.logger.log(log_file, "Error occurred while creating csv file>exception message::%s" % e)
-			log_file.close()
+			#log_file = open(log_file_path, 'a+')
+			#self.logger.log(log_file, "Error occurred while creating csv file>exception message::%s" % e)
+			#log_file.close()
 			raise e
 
 

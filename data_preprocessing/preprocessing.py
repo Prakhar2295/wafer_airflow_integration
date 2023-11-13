@@ -166,11 +166,16 @@ class prepocessor:
         self.data_n = data.describe()
         self.col_to_drop = []
         try:
-            for x in self.columns:
-                if self.data_n[x]['std'] == 0:   # check if standard deviation is zero or not for any column
-                    self.col_to_drop.append(x)  ##storing the column names to the list       
+            for row,cols in self.data_n.iterrows():
+                for c_name,val in cols.items():
+                        if row == self.data_n.index[2]:
+                                if val == 0.0:
+                                    self.col_to_drop.append(c_name)
+            #for x in self.columns:
+                #if self.data_n[x]['std'] == 0:   # check if standard deviation is zero or not for any column
+                    #self.col_to_drop.append(x)  ##storing the column names to the list       
             self.logger_object.log(self.file_object,"Column Search for standard with zero is successsfull.Exiting from this method inside the preprocessing class")
-
+            print(len(self.col_to_drop))
             return self.col_to_drop
         except Exception as e:
             self.logger_object.log(self.file_object,"Exception occurred when searching for column with standard deviation with zero.Exiting from this method inside the preprocessing class")

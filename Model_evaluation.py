@@ -44,7 +44,7 @@ class evaluate_model:
 		try:
 			self.file_object = open(self.file_path,"a+")
 			self.logger_object.log(self.file_object,"Entered inside model performance method of the evaluate_model class")
-			#self.file_object.close()
+			self.file_object.close()
 			if os.path.exists("Training_Data_prediction/Modelprediction.csv"):
 				os.remove("Training_Data_prediction/Modelprediction.csv")
 			if os.path.exists("Training_Data_prediction/Cluster_data.csv"):
@@ -137,10 +137,10 @@ class evaluate_model:
 
 
 
-a = evaluate_model()
-a.model_prediction()
-a.calculate_metrics_score()
-print("done")
+#a = evaluate_model()
+#a.model_prediction()
+#a.calculate_metrics_score()
+#print("done")
 
 
 
