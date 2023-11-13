@@ -40,9 +40,12 @@ class dboperation:
 			file = open(log_file_path, 'a+')
 			self.logger.log(file, "Entered inside databaseconnection method inside dboperation class")
 			file.close()
-			self.host = os.getenv('MYSQL_HOST')
-			self.user = os.getenv('MYSQL_USER')
-			self.password = os.getenv('MYSQL_ROOT_PASSWORD')
+			self.host = 'database-1.cva4d6dzsj7b.us-west-2.rds.amazonaws.com'
+			self.password = '123456789'
+			self.user = 'admin'
+			#self.host = os.getenv('MYSQL_HOST')
+			#self.user = os.getenv('MYSQL_USER')
+			#self.password = os.getenv('MYSQL_ROOT_PASSWORD')
 			conn = connection.connect(host=self.host, user=self.user, passwd=self.password, use_pure=True)
 			cur = conn.cursor()
 			query = "show databases"

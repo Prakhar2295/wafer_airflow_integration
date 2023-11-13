@@ -1,0 +1,9 @@
+2023-11-13/13:38:29		Deleted Bad Raw Data Training Directory
+2023-11-13/13:38:29		Good Raw directory has been deleted successfully!!!
+2023-11-13/13:41:40		Deleted Bad Raw Data Training Directory
+2023-11-13/13:41:40		Good Raw directory has been deleted successfully!!!
+2023-11-13/13:55:56		Deleted Bad Raw Data Training Directory
+2023-11-13/13:55:56		Good Raw directory has been deleted successfully!!!
+2023-11-13/14:06:11		Good Raw directory has been deleted successfully!!!
+2023-11-13/14:06:11		Bad Raw Data moved to Training Raw data Archive directory
+2023-11-13/14:06:11		Bad Raw data directory has been deleted Successfully

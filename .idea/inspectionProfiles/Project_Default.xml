@@ -4,7 +4,7 @@
     <inspection_tool class="PyPackageRequirementsInspection" enabled="true" level="WARNING" enabled_by_default="true">
       <option name="ignoredPackages">
         <value>
-          <list size="55">
+          <list size="60">
             <item index="0" class="java.lang.String" itemvalue="tox" />
             <item index="1" class="java.lang.String" itemvalue="strictyaml" />
             <item index="2" class="java.lang.String" itemvalue="gunicorn" />
@@ -60,6 +60,11 @@
             <item index="52" class="java.lang.String" itemvalue="nltk" />
             <item index="53" class="java.lang.String" itemvalue="docx2pdf" />
             <item index="54" class="java.lang.String" itemvalue="mysql-connector-python" />
+            <item index="55" class="java.lang.String" itemvalue="dnspython" />
+            <item index="56" class="java.lang.String" itemvalue="imblearn" />
+            <item index="57" class="java.lang.String" itemvalue="python-dotenv" />
+            <item index="58" class="java.lang.String" itemvalue="dill" />
+            <item index="59" class="java.lang.String" itemvalue="apache-airflow" />
           </list>
         </value>
       </option>
